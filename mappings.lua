@@ -90,8 +90,8 @@ map.user.v = {
     -- ["<"] = {"<gv", "向左缩进"},
     -- ["<TAB>"] = {">gv|", "向右缩进"},
     -- ["S-<TAB>"] = {"<gv|", "向左缩进"},
-    ["J"] = {":m'>+<cr>`<my`>mzgv`yo`z", "向下移动行"},
-    ["K"] = {"m'<-2<cr>`>my`<mzgv`yo`", "向上移动行"},
+    ["J"] = {":move '>+1<CR>gv-gv", "向下移动行", opts = { silent = true }},
+    ["K"] = {":move '<-2<CR>gv-gv", "向上移动行", opts = { silent = true }},
 }
 
 map.user.n = {
