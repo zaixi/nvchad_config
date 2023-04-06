@@ -159,6 +159,10 @@ map.user.n = {
 
     ["<leader>th"] = { name = "  切换高亮" },
 
+    ["<leader>tn"] = { name = '切换显示换行'},
+    ["<leader>tnd"] = { ":e ++ff=unix <CR>", '显示dos换行'},
+    ["<leader>tnu"] = { ":e ++ff=dos <CR>", '显示unix换行'},
+
     ["<leader>thh"] = { ":set cursorline! <CR>", '切换行高亮'},
     ["<leader>thc"] = { ":set cursorcolumn! <CR>", '切换列高亮'},
     ["<leader>thi"] = { "IndentLinesToggle <CR>", '切换缩进高亮'},
