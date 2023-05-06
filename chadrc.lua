@@ -1,32 +1,40 @@
--- Just an example, supposed to be placed in /lua/custom/
-
+---@type ChadrcConfig
 local M = {}
 
 M.map_name = {
-  i = {},
-  n = {},
-  t= {},
-  v = {},
-  x = {},
+    i = {},
+    n = {},
+    t= {},
+    v = {},
+    x = {},
 }
 
-M.lsp_server = { "clangd", "pyright", "html", "cssls", "bashls", "sumneko_lua", "luau_lsp" }
+M.lsp_server = { "clangd", "pyright", "html", "cssls", "bashls", "lua_ls", "awk_ls", "marksman"}
+M.Mason_server = { "clangd", "pyright", "html-lsp", "css-lsp", "bash-language-server", "lua-language-server", "awk-language-server", "marksman"}
 
-M.mappings = require("custom.mappings").map
+-- Path to overriding theme and highlights files
+local highlights = require "custom.highlights"
 
 M.ui = {
-   -- theme = "gruvchad",
-   -- hl_add = {
-   hl_override = {
-     BufferLineBufferSelected = {
-       bold = true,
-     },
-     BufferlineIndicatorSelected = {
-       fg = 'blue',
-     },
-   },
+  theme = "onedark",
+  theme_toggle = { "onedark", "one_light" },
+
+  hl_override = highlights.override,
+  hl_add = highlights.add,
+
+  statusline = {
+    overriden_modules = function()
+        return require("custom.configs.other").ui()
+    end,
+  },
+  nvdash = {
+        load_on_startup = true,
+    },
 }
 
-M.plugins = require("custom.plugins").plugs()
+M.plugins = "custom.plugins"
+
+-- check core.mappings for table structure
+M.mappings = require("custom.mappings").map
 
 return M

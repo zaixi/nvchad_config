@@ -105,8 +105,16 @@ local options = {
     },
 }
 
+local function rev_tab(tab)
+  local revtab = {}
+  for _, v in pairs(tab) do
+    revtab[v] = true
+  end
+  return revtab
+end
+
 local add_opt = {"iskeyword", "formatoptions", "shortmess", "diffopt"}
-local special_opt = require("custom.utils").rev_tab(add_opt)
+local special_opt = rev_tab(add_opt)
 
 -- 配置 options
 for k, v in pairs(options) do
