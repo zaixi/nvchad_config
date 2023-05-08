@@ -206,6 +206,18 @@ local plugins = {
     {
         "nvim-telescope/telescope.nvim",
         opts = plugin_conf.telescope_conf,
+        config = function(_, opts)
+            dofile(vim.g.base46_cache .. "telescope")
+            local telescope = require "telescope"
+            telescope.setup(opts)
+
+            -- load extensions
+            for _, ext in ipairs(opts.extensions_list) do
+                telescope.load_extension(ext)
+            end
+
+            require('telescope.builtin').grep_string = require("custom.utils").grep_string
+        end,
         dependencies = {
             -- 增强 telescope 搜索性能
             {

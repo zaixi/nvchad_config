@@ -85,6 +85,12 @@ map.general.x = {
     ["<leader>/"] = { ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())  <CR>", "蘒  切换行注释" },
     ["<leader>/c"] = { ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())  <CR>", "切换行注释" },
     ["<leader>/b"] = { ":lua require('Comment.api').toggle_blockwise_op(vim.fn.visualmode())  <CR>", "切换块注释" },
+
+    -- 搜索/符号 {{{
+    ["<leader>s"] = { name = "  搜索/符号" },
+    ["<leader>ss"] = { "<cmd>Telescope grep_string <CR>", "查找当前符号" },
+    -- }}}
+
     -- 使用 < > 在可视模式下缩进
     [">"] = {">gv|", "向右缩进"},
     ["<"] = {"<gv", "向左缩进"},
@@ -92,10 +98,6 @@ map.general.x = {
     -- ["S-<TAB>"] = {"<gv|", "向左缩进"},
     ["J"] = {":move '>+1<CR>gv-gv", "向下移动行", opts = { silent = true }},
     ["K"] = {":move '<-2<CR>gv-gv", "向上移动行", opts = { silent = true }},
-
-    -- vim-surround 设置
-    ['"'] = {'S"', "向左缩进"},
-    ["'"] = {"S'", "向左缩进"},
 
     -- 文本/编辑 {{{
     ["<leader>x"] = {name = '﨣文本'},
