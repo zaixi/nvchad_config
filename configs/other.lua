@@ -13,10 +13,10 @@ M.ui = function()
       end
 
       local function nvim_gps()
-        if vim.o.columns < 140 or not package.loaded["nvim-gps"] then
+        if vim.o.columns < 140 or not package.loaded["nvim-navic"] then
           return ""
         end
-        local gps = require "nvim-gps"
+        local gps = require("nvim-navic")
         if not gps.is_available() then
           return ""
         end
@@ -174,6 +174,9 @@ M.treesitter = {
     context_commentstring = {
         enable = true,
         enable_autocmd = false,
+    },
+    matchup = {
+        enable = true,
     },
 }
 

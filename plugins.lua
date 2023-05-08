@@ -7,7 +7,7 @@ local plugins = {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            { 'williamboman/mason-lspconfig.nvim'},
+            --{ 'williamboman/mason-lspconfig.nvim'},
             -- format & linting
             {
                 "jose-elias-alvarez/null-ls.nvim",
@@ -20,6 +20,9 @@ local plugins = {
             {
                 "ray-x/lsp_signature.nvim",
                 config = function() require "lsp_signature".setup() end
+            },
+            {
+                "SmiteshP/nvim-navic",
             },
         },
         config = function()
@@ -63,25 +66,27 @@ local plugins = {
 -- }}}
 
 -- treesitter {{{
-    {
-        "nvim-treesitter/nvim-treesitter",
-        opts = plugin_conf.treesitter,
-    },
-
 -- treesitter 扩展
     {
         "nvim-treesitter/nvim-treesitter" ,
         opts = plugin_conf.treesitter,
         dependencies = {
-     -- 显示函数名和if for 上下文
+            -- 显示函数名和if for 上下文
             {'romgrk/nvim-treesitter-context'},
-     -- 突出显示光标下当前符号
+            -- 突出显示光标下当前符号
             --{'nvim-treesitter/nvim-treesitter-refactor'},
             -- 与 numToStr / Comment.nvim 配合使用
             {"JoosepAlviste/nvim-ts-context-commentstring"},
-            -- 状态栏显示的当前函数名
-            {"SmiteshP/nvim-gps", config = function() require("nvim-gps").setup() end},
+            -- 状态栏显示的当前函数名, switch to SmiteshP/nvim-navic
+            --{"SmiteshP/nvim-gps", config = function() require("nvim-gps").setup() end},
             -- {"nvim-treesitter/nvim-treesitter-textobjects"},
+            -- 显示匹配词
+            {
+                "andymass/vim-matchup",
+                init = function()
+                    vim.g.matchup_matchparen_offscreen = { method = "popup" }
+                end
+            },
         },
     },
 --}}}
@@ -133,7 +138,11 @@ local plugins = {
 
     -- coding {{{
     -- 注释
-    {"numToStr/Comment.nvim", config = plugin_conf.comment},
+    {
+        "numToStr/Comment.nvim",
+        keys = { "<leader/>" },
+        config = plugin_conf.comment
+    },
     -- Doxygen风格注释
     {"vim-scripts/DoxygenToolkit.vim", cmd = {'Dox', 'DoxLic', 'DoxAuthor'}},
     -- 去除行尾空格
@@ -152,6 +161,7 @@ local plugins = {
 
     -- taglist {{{
     {
+        -- "dhananjaylatkar/vim-gutentags",
         "ludovicchabant/vim-gutentags",
         lazy=false,
         build = function()
@@ -178,15 +188,6 @@ local plugins = {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPost", "BufNewFile" },
         opts = plugin_conf.indent_blankline,
-    },
-    -- 显示匹配词
-    {
-        "andymass/vim-matchup",
-        lazy = false,
-        event = "VeryLazy",
-        init = function()
-            vim.g.matchup_matchparen_offscreen = { method = "popup" }
-        end
     },
     -- 翻译软件，需要安装 soimort/translate-shell
     { "uga-rosa/translate.nvim", cmd = "Translate", config = plugin_conf.translate},
