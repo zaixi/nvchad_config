@@ -194,9 +194,9 @@ map.general.n = {
     -- }}}
 
     -- 注释 {{{
-    ["<leader>/"] = { ":lua require('Comment.api').toggle_current_linewise() <CR>", "  注释" },
-    ["<leader>/c"] = { ":lua require('Comment.api').toggle_current_linewise() <CR>", "切换行注释" },
-    ["<leader>/b"] = { ":lua require('Comment.api').toggle_current_blockwise() <CR>", "切换块注释" },
+    ["<leader>/"] = { ":lua require('Comment.api').toggle.linewise() <CR>", "  注释" },
+    ["<leader>/c"] = { ":lua require('Comment.api').toggle.linewise() <CR>", "切换行注释" },
+    ["<leader>/b"] = { ":lua require('Comment.api').toggle.blockwise() <CR>", "切换块注释" },
 
     ["<leader>/f"] = { ":Dox <CR>", "生成函数注释" },
     ["<leader>/l"] = { ":DoxLic <CR>", "生成许可证注释" },

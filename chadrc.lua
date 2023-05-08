@@ -27,6 +27,9 @@ M.ui = {
         return require("custom.configs.other").ui()
     end,
   },
+  tabufline = {
+    lazyload = false,
+  },
   nvdash = {
         load_on_startup = true,
     },
