@@ -16,7 +16,7 @@ M.Mason_server = { "clangd", "pyright", "html-lsp", "css-lsp", "bash-language-se
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "onedark",
+  theme = "tokyonight",
   theme_toggle = { "onedark", "one_light" },
 
   hl_override = highlights.override,
