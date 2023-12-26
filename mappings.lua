@@ -7,27 +7,9 @@ M.map = {}
 local map = M.map
 local core_map = require "core.mappings"
 
-core_map.lspconfig = {}
-core_map.nvimtree= {}
-core_map.bufferline = {}
-core_map.tabufline = {}
-core_map.comment = {}
-core_map.telescope = {}
-core_map.whichkey = {}
-core_map.general = {}
-core_map.gitsigns = {}
-core_map = {}
 
 map.user = {}
 
-map.disabled = {
-    n = {
-        ["<leader>e"] = "",
-
-        ["<leader>h"] = "",
-        ["<leader>v"] = "",
-    },
-}
 
 vim.cmd [[
 

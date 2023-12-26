@@ -162,7 +162,7 @@ local plugins = {
     -- taglist {{{
     {
         -- "dhananjaylatkar/vim-gutentags",
-        "ludovicchabant/vim-gutentags",
+        "skywind3000/vim-gutentags",
         lazy=false,
         build = function()
             local chmod_cmd = "! chmod +x " .. vim.fn.stdpath "data" .. "lazy/vim-gutentags/plat/unix/update_gtags.sh"
@@ -260,6 +260,10 @@ local plugins = {
     -- }}}
 
     -- other {{{
+	{
+		'echasnovski/mini.align',
+		event = { "BufReadPost", "BufNewFile" },
+	},
     {"rcarriga/nvim-notify"},
     {
         "mrded/nvim-lsp-notify",

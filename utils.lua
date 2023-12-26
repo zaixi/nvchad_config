@@ -51,6 +51,9 @@ end
 
 -- 从 spacevim copy 的window_smart_closee {{{
 M.window_smart_close = function()
+    require("nvchad_ui.tabufline").close_buffer()
+end
+M.window_smart_closee = function()
     vim.cmd [[
 
     function! s:is_float(winid) abort

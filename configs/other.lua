@@ -261,6 +261,8 @@ M.gutentags = function()
             let g:gutentags_plus_use_telescope = 1
             let g:gutentags_define_advanced_commands = 1
             " let g:gutentags_debug = 1
+            " 关闭保存时自动更新
+            let g:gutentags_generate_on_write = 0
 
             " 所生成的数据文件的名称
             let g:gutentags_ctags_tagfile = '.tags'
